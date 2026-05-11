@@ -2,7 +2,7 @@ services:
   - type: web
     name: be-todo
     env: docker
-    dockerfilePath: ./backend/Dockerfile
+    dockerfilePath: ./Assignment_1/backend/Dockerfile
     autoDeploy: true
     envVars:
       - key: DB_HOST
@@ -33,7 +33,7 @@ services:
   - type: web
     name: fe-todo
     env: docker
-    dockerfilePath: ./frontend/Dockerfile
+    dockerfilePath: ./Assignment_1/frontend/Dockerfile
     autoDeploy: true
     envVars:
       - key: REACT_APP_API_URL
