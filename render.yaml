@@ -1,27 +1,45 @@
 services:
   - type: web
     name: be-todo
-    runtime: docker
-    dockerfilePath: ./Backend/Dockerfile
+    env: docker
+    dockerfilePath: ./Assignment_1/backend/Dockerfile
+    autoDeploy: true
     envVars:
-      - key: DATABASE_URL
+      - key: DB_HOST
         fromDatabase:
           name: todo-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: todo-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: todo-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: todo-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: todo-db
+          property: database
       - key: DB_SSL
         value: "true"
       - key: PORT
-        value: 5000
-      - key: CORS_ORIGIN
-        value: https://fe-todo-02240352.onrender.com
+        value: "5000"
 
   - type: web
     name: fe-todo
-    runtime: docker
-    dockerfilePath: ./Frontend/Dockerfile
+    env: docker
+    dockerfilePath: ./Assignment_1/frontend/Dockerfile
+    autoDeploy: true
     envVars:
-      - key: NEXT_PUBLIC_API_URL
-        value: https://be-todo-02240352.onrender.com
+      - key: REACT_APP_API_URL
+        value: https://be-todo.onrender.com
+
 databases:
   - name: todo-db
-    plan: free
+    databaseName: todo_db
+    user: todo_user
