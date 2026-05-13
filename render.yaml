@@ -2,7 +2,7 @@ services:
   - type: web
     name: be-todo
     env: docker
-    dockerfilePath: ./Assignment_1/backend/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: ./Assignment_1/backend
     autoDeploy: true
     envVars:
@@ -34,7 +34,7 @@ services:
   - type: web
     name: fe-todo
     env: docker
-    dockerfilePath: ./Assignment_1/frontend/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: ./Assignment_1/frontend
     autoDeploy: true
     envVars:
