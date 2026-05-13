@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Backend Dependencies') {
             steps {
-                dir('backend') {
+                dir('Assignment_1/backend') {
                     sh 'npm install'
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Install Frontend Dependencies') {
             steps {
-                dir('frontend') {
+                dir('Assignment_1/frontend') {
                     sh 'npm install'
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('frontend') {
+                dir('Assignment_1/frontend') {
                     sh 'npm run build'
                 }
             }
@@ -38,13 +38,13 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                dir('backend') {
+                dir('Assignment_1/backend') {
                     sh 'npm test'
                 }
             }
             post {
                 always {
-                    junit 'backend/junit.xml'
+                    junit 'Assignment_1/backend/junit.xml'
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.build('Ny3ndrak/be-todo:02240352', './backend')
+                    docker.build('Ny3ndrak/be-todo:02240352', './Assignment_1/backend')
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
                         docker.image('Ny3ndrak/be-todo:02240352').push()
                     }
