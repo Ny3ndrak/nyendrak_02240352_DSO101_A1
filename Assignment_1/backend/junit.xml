@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="0.456">
+  <testsuite name="Todo App Tests" errors="0" failures="0" skipped="0" timestamp="2026-05-13T03:46:20" time="0.334" tests="3">
+    <testcase classname="Todo App Tests should pass a basic test" name="Todo App Tests should pass a basic test" time="0.005">
+    </testcase>
+    <testcase classname="Todo App Tests todo item should have a title" name="Todo App Tests todo item should have a title" time="0.001">
+    </testcase>
+    <testcase classname="Todo App Tests should add two numbers correctly" name="Todo App Tests should add two numbers correctly" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

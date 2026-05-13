@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Ny3ndrak/nyendrak_02240352_DSO101_A1.git',
+                    credentialsId: 'github-creds'
+            }
+        }
+
+        stage('Install Backend Dependencies') {
+            steps {
+                dir('backend') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Install Frontend Dependencies') {
+            steps {
+                dir('frontend') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                dir('frontend') {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                dir('backend') {
+                    sh 'npm test'
+                }
+            }
+            post {
+                always {
+                    junit 'backend/junit.xml'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    docker.build('Ny3ndrak/be-todo:02240352', './backend')
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
+                        docker.image('Ny3ndrak/be-todo:02240352').push()
+                    }
+                }
+            }
+        }
+    }
+}
