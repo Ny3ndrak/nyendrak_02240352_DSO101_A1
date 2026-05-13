@@ -52,9 +52,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.build('Ny3ndrak/be-todo:02240352', './Assignment_1/backend')
+                    def backendImage = docker.build('ny3ndrak/be-todo:02240352', './Assignment_1/backend')
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
-                        docker.image('Ny3ndrak/be-todo:02240352').push()
+                        backendImage.push()
                     }
                 }
             }
