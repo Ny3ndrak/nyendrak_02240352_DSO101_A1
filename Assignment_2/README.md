@@ -267,32 +267,29 @@ A new pipeline was created via:
    - **Script Path:** `Jenkinsfile`
 5. Clicked **Save** then **Build Now**
 
-📸 **Screenshot 9: Pipeline configuration page**
-> _Add screenshot of the Jenkins pipeline configuration showing the SCM settings, repository URL and credentials filled in_
 
----
-
+** 9: Pipeline configuration page**
 ### 4.2 Successful Pipeline Execution
 
 📸 **Screenshot 10: Pipeline stages view (Blue Ocean or Stage View)**
-> _Add screenshot of the pipeline showing all stages: Checkout ✅, Install Backend ✅, Install Frontend ✅, Build ✅, Test ✅, Deploy ✅ — all green_
+> ![Backend](image-8.png)
 
 📸 **Screenshot 11: Full console output**
-> _Add screenshot of the Jenkins console output showing the full build log with no errors — scroll to show the "Finished: SUCCESS" message at the bottom_
+![Success](image-7.png)
 
 ---
 
 ### 4.3 Test Results in Jenkins
 
 📸 **Screenshot 12: Test results in Jenkins**
-> _Add screenshot of the Test Results page in Jenkins showing all 3 tests passed (click on the build number > Test Results to find this)_
+> ![Test Result](image-9.png)
 
 ---
 
 ### 4.4 Docker Hub Image
 
 📸 **Screenshot 13: Docker Hub repository**
-> _Add screenshot of hub.docker.com showing your be-todo repository with the 02240352 tag successfully pushed_
+> ![pushed](image-10.png)
 
 ---
 
